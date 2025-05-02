@@ -6,7 +6,7 @@ from logger import log_tool_execution
 import requests
 # from ssh_utils import execute_command, client
 
-WOLFRAM_APP_ID = "V4R4TJ-KRX2G8GAAA" 
+# WOLFRAM_APP_ID = 
 
 
 @tool
