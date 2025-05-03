@@ -13,6 +13,11 @@ import datetime
 
 from tools import tools_past_advice, tools_future_advice
 
+from api_utils import extractUserInformation
+
+
+
+
 class FinancialAdviceAIAgent:
     """Financial advice autonomous AI Agent"""
 
@@ -20,6 +25,7 @@ class FinancialAdviceAIAgent:
         self.llm = llm
         self.agents = {}
         self.memory = MemorySaver()
+        self.user_info = extractUserInformation(os.getenv("BUNQ_API_KEY"))
         self._setup_graph()
 
     def _extract_routing_decision(self, state):
@@ -55,6 +61,7 @@ class FinancialAdviceAIAgent:
         
         # Define prompts
         orchestrator_prompt = (
+            f"This is the person that owns the account: {self.user_information} "
             "You are the orchestrator agent. Your task is to route financial questions to the appropriate specialist agent.\n"
             "1. For questions about past spending, expenses, or transaction history, route to 'past'.\n"
             "2. For questions about future planning, saving, investing, or goals, route to 'future'.\n"
@@ -165,8 +172,8 @@ class FinancialAdviceAIAgent:
                     if msg.content.strip():
                         # Limit response length
                         content = msg.content
-                        if len(content.split()) > 50:  # Roughly 2-3 sentences
-                            content = " ".join(content.split()[:50]) + "..."
+                        if len(content.split()) > 200:  # Roughly 2-3 sentences
+                            content = " ".join(content.split()[:200]) + "..."
                         logger.log_agent_response(
                             "Bunq AI", content
                         )
