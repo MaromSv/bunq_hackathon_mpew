@@ -91,16 +91,23 @@ class FinancialAdviceAIAgent:
             "Keep your responses concise and focused. Limit responses to 2-3 sentences maximum."
         )
 
+        general_prompt = (
+            "You are the General Advisor. The user is asking a general question or greeting. "
+            "Your task is to provide a friendly and informative response. "
+        )
+
         builder = StateGraph(AgentState)
 
         # Create all specialized agents
         orchestrator = create_react_agent(self.llm, tools=[], prompt=orchestrator_prompt, checkpointer=self.memory)
         past_advice_agent = create_react_agent(self.llm, tools=tools_past_advice, prompt=past_advice_prompt, checkpointer=self.memory)
         future_advice_agent = create_react_agent(self.llm, tools=tools_future_advice, prompt=future_advice_prompt, checkpointer=self.memory)
-  
+        general_agent = create_react_agent(self.llm, tools=[], prompt=general_prompt, checkpointer=self.memory)
+
         builder.add_node("orchestrator", orchestrator)
         builder.add_node("past_advice", past_advice_agent)
         builder.add_node("future_advice", future_advice_agent)
+        builder.add_node("general_advice", general_agent)
 
         builder.set_entry_point("orchestrator")
 
@@ -111,7 +118,7 @@ class FinancialAdviceAIAgent:
             {
                 "past": "past_advice",
                 "future": "future_advice",
-                "general": "orchestrator"  
+                "general": "general_advice",  
             }
         )
 

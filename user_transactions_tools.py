@@ -78,7 +78,8 @@ def analyze_user_spending(query: str) -> str:
     """
     try:
         analyzer = TransactionAnalyzer()
-        return analyzer.get_transactions_summary()
+        # return analyzer.get_transactions_summary()
+        return analyzer._load_transactions()
             
     except Exception as e:
         return f"Error analyzing spending: {str(e)}"
