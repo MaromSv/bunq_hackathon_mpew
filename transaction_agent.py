@@ -11,7 +11,7 @@ import json
 from logger import logger
 import datetime
 
-from transaction_analysis_tools import tools as transaction_tools
+from user_transactions_tools import tools as transaction_tools
 
 class TransactionAnalysisAgent:
     """Transaction Analysis AI Agent"""

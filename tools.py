@@ -5,8 +5,8 @@ from langchain_core.tools import tool
 from logger import log_tool_execution
 import requests
 from web_search_tools import tools as web_search_tools
-from expense_analysis_tools import tools as expense_analysis_tools
-from transaction_analysis_tools import tools as transaction_analysis_tools
+from other_people_expenses_tools import tools as other_people_expenses_tools
+from user_transactions_tools import tools as user_transactions_tools
 
 from langchain_core.tools import tool
 
@@ -35,5 +35,5 @@ def research_tool(input: str) -> str:
 
 
 # Tools for analyzing past spending and transactions
-tools_past_advice = expense_analysis_tools + transaction_analysis_tools
-tools_future_advice = transaction_analysis_tools + web_search_tools
+tools_past_advice = other_people_expenses_tools + user_transactions_tools
+tools_future_advice = user_transactions_tools + web_search_tools
