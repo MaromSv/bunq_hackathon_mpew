@@ -4,18 +4,23 @@ from logger import log_tool_execution
 import pandas as pd
 import json
 from datetime import datetime
+from api_utils import extractTransaction
 
 class TransactionAnalyzer:
-    def __init__(self, transactions_path: str = "user_transactions.json"):
+    def __init__(self, transactions_path: str = None, bunq_api_key: str = None):
         self.transactions_path = transactions_path
+        self.bunq_api_key = bunq_api_key
         self.transactions = self._load_transactions()
 
     def _load_transactions(self) -> List[Dict[str, Any]]:
         """Load and preprocess user transactions."""
         try:
-            with open(self.transactions_path, 'r') as f:
-                transactions = json.load(f)
-            return transactions
+            if self.transactions_path is None:
+                transactions = extractTransaction(self.bunq_api_key)
+            else:
+                with open(self.transactions_path, 'r') as f:
+                    transactions = json.load(f)
+                return transactions
         except Exception as e:
             raise ValueError(f"Error loading transactions: {str(e)}")
 
