@@ -10,6 +10,16 @@ A smart financial assistant that helps users analyze their spending patterns and
 - **Real-time Analysis**: Processes transactions as they occur
 - **Smart Summaries**: Provides concise, actionable insights about spending habits
 
+## Architecture overview
+
+The system is built on a modular architecture that combines multiple AI agents and tools to provide personalised financial analysis. 
+
+![Architecture Graph](graph.png)
+
+
+The system uses LangGraph to create a directed graph of operations, where each node represents a specific analysis task or tool. The Transaction Analysis Agent acts as the central coordinator, routing requests to appropriate tools and synthesizing responses.
+
+
 ## Components
 
 - `transaction_agent.py`: Main agent for analyzing transactions and providing insights
