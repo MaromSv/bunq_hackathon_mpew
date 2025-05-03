@@ -22,6 +22,11 @@ class FinancialAdviceAIAgent:
     """Financial advice autonomous AI Agent"""
 
     def __init__(self, llm):
+        """
+        Initialize the FinancialAdviceAIAgent with a given LLM.
+
+        :param llm: The LLM to use for the agent.
+        """
         self.llm = llm
         self.agents = {}
         self.memory = MemorySaver()
@@ -29,7 +34,12 @@ class FinancialAdviceAIAgent:
         self._setup_graph()
 
     def _extract_routing_decision(self, state):
-        """Extract routing decision from the agent's output"""
+        """
+        Extract routing decision from the agent's output
+        
+        :param state: The state of the agent.
+        :return: The routing decision.
+        """
             
         # Get the last AI message
         ai_messages = [m for m in state["messages"] if isinstance(m, AIMessage)]
@@ -57,7 +67,7 @@ class FinancialAdviceAIAgent:
         return "general"
 
     def _setup_graph(self):
-        """Setup a multi-agent LangGraph workflow"""
+        """Setup a multi-agent LangGraph workflow and builds the graph"""
         
         # Define prompts
         orchestrator_prompt = (
@@ -145,7 +155,13 @@ class FinancialAdviceAIAgent:
 
 
     def process_message(self, message, thread_id=None):
-        """Process a user message"""
+        """
+        Processes a user message
+        
+        :param message: The user message to process.
+        :param thread_id: The thread ID to use for the message.
+        :return: The response from the agent.
+        """
         try:
             # Create a human message
             human_msg = HumanMessage(content=message)

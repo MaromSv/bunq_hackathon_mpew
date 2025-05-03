@@ -7,13 +7,26 @@ from datetime import datetime
 from api_utils import extractTransaction
 
 class TransactionAnalyzer:
+    """
+    Analyzes user transactions and provides a summary.
+    """
     def __init__(self, transactions_path: str = None, bunq_api_key: str = None):
+        """
+        Initialize the TransactionAnalyzer with a given transactions path and bunq API key.
+        
+        :param transactions_path: The path to the transactions file.
+        :param bunq_api_key: The bunq API key.
+        """
         self.transactions_path = transactions_path
         self.bunq_api_key = bunq_api_key
         self.transactions = self._load_transactions()
 
     def _load_transactions(self) -> List[Dict[str, Any]]:
-        """Load and preprocess user transactions."""
+        """
+        Load and preprocess user transactions.
+        
+        :return: A list of transactions.
+        """
         try:
             if self.transactions_path is None:
                 transactions = extractTransaction(self.bunq_api_key)
@@ -25,7 +38,11 @@ class TransactionAnalyzer:
             raise ValueError(f"Error loading transactions: {str(e)}")
 
     def get_transactions_summary(self) -> str:
-        """Get a detailed summary of all transactions."""
+        """
+        Get a detailed summary of all transactions.
+        
+        :return: A formatted summary of the transactions.
+        """
         if not self.transactions:
             return "No transactions found."
             

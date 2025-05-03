@@ -22,7 +22,7 @@ class TransactionAnalysisAgent:
         self._setup_graph()
 
     def _setup_graph(self):
-        """Setup the LangGraph workflow"""
+        """Setup the LangGraph workflow and builds the graph"""
         
         # Define prompt
         prompt = (

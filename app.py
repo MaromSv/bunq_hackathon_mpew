@@ -37,6 +37,12 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Your main demo loop
 def run_demo():
+    """
+    This is the main demo loop that allows the user to interact with the AI agent.
+    It takes user input and passes it to the AI agent, which then returns a response.
+    The response is then printed to the console.
+    """
+
     while True:
         user_input = input("User (type 'exit' to quit): ").strip()
 

@@ -5,7 +5,14 @@ import pandas as pd
 import json
 
 class ExpenseAnalyzer:
+    """
+    Analyzes expense data based on the provided criteria.
+    """
     def __init__(self, csv_path: str = "monthly_spending_by_age_group.csv"):
+        """
+        Initialize the ExpenseAnalyzer with a given CSV file path.
+        
+        """
         self.csv_path = csv_path
         self.df = self._load_data()
         self._initialize_valid_values()

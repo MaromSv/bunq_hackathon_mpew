@@ -8,13 +8,27 @@ from urllib.parse import urlparse
 import time
 
 class WebSearchTool:
+    """
+    Performs web searches and analyzes the results.
+    """
     def __init__(self, max_results: int = 5, max_retries: int = 3):
+        """
+        Initialize the WebSearchTool with a given maximum number of results and maximum number of retries.
+        
+        :param max_results: The maximum number of results to return.
+        :param max_retries: The maximum number of retries for the search.
+        """
         self.max_results = max_results
         self.max_retries = max_retries
         self.ddgs = DDGS()
 
     def search(self, query: str) -> List[Dict[str, str]]:
-        """Perform a web search using DuckDuckGo."""
+        """
+        Perform a web search using DuckDuckGo.
+        
+        :param query: The search query.
+        :return: A list of search results.
+        """
         try:
             results = list(self.ddgs.text(query, max_results=self.max_results))
             return results
@@ -22,7 +36,13 @@ class WebSearchTool:
             return [{"error": f"Search failed: {str(e)}"}]
 
     def is_relevant_content(self, text: str, query: str) -> bool:
-        """Check if the content is relevant to the query."""
+        """
+        Check if the content is relevant to the query.
+        
+        :param text: The content to check.
+        :param query: The search query.
+        :return: True if the content is relevant, False otherwise.
+        """
         query_terms = set(re.findall(r'\w+', query.lower()))
         text_terms = set(re.findall(r'\w+', text.lower()))
         
