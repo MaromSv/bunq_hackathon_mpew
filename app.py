@@ -14,7 +14,7 @@ from langchain_core.tools import Tool
 import asyncio
 import uuid
 from dotenv import load_dotenv
-from agentic_ai import FinancialAdviceAIAgent
+from agent import FinancialAdviceAIAgent
 from langchain.chat_models import init_chat_model
 load_dotenv()
 
