@@ -139,7 +139,7 @@ class FinancialAdviceAIAgent:
                 config={
                     "thread_id": thread_id,
                     "configurable": {"checkpointer": self.memory},
-                    "recursion_limit": 3  # Further reduced to prevent loops
+                    "recursion_limit": 10  
                 },
             )
 
