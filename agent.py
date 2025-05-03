@@ -61,7 +61,7 @@ class FinancialAdviceAIAgent:
         
         # Define prompts
         orchestrator_prompt = (
-            f"This is the person that owns the account: {self.user_information} "
+            f"This is the person that owns the account: {self.user_info}, take this into account\n"
             "You are the orchestrator agent. Your task is to route financial questions to the appropriate specialist agent.\n"
             "1. For questions about past spending, expenses, or transaction history, route to 'past'.\n"
             "2. For questions about future planning, saving, investing, or goals, route to 'future'.\n"
@@ -76,6 +76,7 @@ class FinancialAdviceAIAgent:
         )
 
         past_advice_prompt = (
+            f"This is the person that owns the account: {self.user_info}, take this into account"
             "You are the Past Spending Advisor. You analyze the user's past financial behaviors, "
             "including transactions, spending habits, and demographic comparisons. "
             "Use the tools available to you to identify where the user could optimize or reduce expenses. "
@@ -89,6 +90,7 @@ class FinancialAdviceAIAgent:
         )
 
         future_advice_prompt = (
+            f"This is the person that owns the account: {self.user_info}, take this into account"
             "You are the Future Planning Advisor. The user is asking for financial guidance about a future action or goal. "
             "Use the tools available to you to help the user by providing them financial advice on future purchases. "
             "When using expense analysis tools, always check available values first using get_valid_filter_values().\n\n"
@@ -99,6 +101,7 @@ class FinancialAdviceAIAgent:
         )
 
         general_prompt = (
+            f"This is the person that owns the account: {self.user_info}, take this into account"
             "You are the General Advisor. The user is asking a general question or greeting. "
             "Your task is to provide a friendly and informative response. "
         )

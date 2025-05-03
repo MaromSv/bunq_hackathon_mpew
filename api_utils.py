@@ -33,7 +33,8 @@ def extractUserInformation(api_key: str) -> List[str]:
     "city": user_context.user_person.address_main.city,
     "country": user_context.user_person.address_main.country,
     "date_of_birth": user_context.user_person.date_of_birth,
-    "gender": user_context.user_person.gender
+    "gender": user_context.user_person.gender,
+    "user_legal_name": user_context.user_person.legal_name
     }
 
     return json.dumps(user_details, indent=4)
