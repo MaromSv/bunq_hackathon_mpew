@@ -14,12 +14,14 @@ from langchain_core.tools import Tool
 import asyncio
 import uuid
 from dotenv import load_dotenv
-from agent import AIAgent
+from agent import FinancialAdviceAIAgent
+from langchain.chat_models import init_chat_model
 load_dotenv()
 
-llm = ChatOpenAI(model='gpt-4o')
 
-ai_agent = AIAgent(llm)
+llm = init_chat_model("meta/llama-3.1-70b-instruct", model_provider="nvidia")
+
+ai_agent = FinancialAdviceAIAgent(llm)
 thread_id = str(uuid.uuid4())
 
 def run_demo():

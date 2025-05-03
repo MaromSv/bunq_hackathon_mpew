@@ -4,41 +4,32 @@ import traceback
 from langchain_core.tools import tool
 from logger import log_tool_execution
 import requests
-# from ssh_utils import execute_command, client
 
-# WOLFRAM_APP_ID = 
+from langchain_core.tools import tool
+
+@tool
+@log_tool_execution
+def bunq_api_tool(input: str) -> str:
+    """Access the Bunq API to retrieve relevant financial data of the user."""
+    print("Accessing Bunq API...")
+    return f"[Bunq API] Accessing Bunq for: {input}"
 
 
 @tool
 @log_tool_execution
-def wolfram_alpha(Latex_query: str, plot: bool = False):
-    """
-    A tool that interacts with the Wolfram Alpha API.
-
-    Args:
-        Latex_query: A LaTeX formatted query string to be sent to the Wolfram Alpha API.
-
-    Returns:
-        str: An XML document with informational elements that can be parsed to extract the result. 
-    """
+def comparator_tool(input: str) -> str:
+    """Compare previous purchases to identify patterns or savings."""
+    print("Comparing previous purchases...")
+    return f"[Comparator] Comparing previous purchases for: {input}"
 
 
-    base_url = "http://api.wolframalpha.com/v2/query"
-    params = {
-        "appid": WOLFRAM_APP_ID,
-        "input": Latex_query,
-        "format": "image" if plot else "plaintext",
-        "output": "JSON"
-    }
+@tool
+@log_tool_execution
+def research_tool(input: str) -> str:
+    """Look up how much items cost on the internet."""
+    print("Researching future purchases...")
+    return f"[Research Tool] Looking up future purchases for: {input}"
 
 
-    response = requests.get(base_url, params=params)
-    response.raise_for_status()  # Raise an error for HTTP issues
-    data = response.json()
-
-    # result = 'http://api.wolframalpha.com/v2/query?appid=DEMO&input=Latex_query'
-
-    return data
-    
-
-tools = [wolfram_alpha]
+tools_past_advice = [bunq_api_tool, comparator_tool]
+tools_future_advice = [bunq_api_tool, research_tool]
