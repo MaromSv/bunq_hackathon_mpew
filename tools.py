@@ -11,5 +11,5 @@ from user_transactions_tools import tools as user_transactions_tools
 from langchain_core.tools import tool
 
 # Tools for analyzing past spending and transactions
-tools_past_advice = [other_people_expenses_tools, user_transactions_tools]
-tools_future_advice = [web_search_tools]
+tools_past_advice = other_people_expenses_tools, user_transactions_tools
+tools_future_advice = web_search_tools
