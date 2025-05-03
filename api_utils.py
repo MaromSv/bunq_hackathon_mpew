@@ -7,10 +7,6 @@ from bunq import Pagination
 from typing import List, Dict, Optional, Union
 import time
 import json
-from agno.agent import Agent
-from agno.models.openai import OpenAIChat
-from agno.tools.reasoning import ReasoningTools
-from agno.team import Team
 
 def extractUserInformation(api_key: str) -> List[str]:
     """
@@ -71,88 +67,3 @@ def extractTransaction(api_key: str) -> List[str]:
 
     print(f"Total transactions: {len(transactionList)}")
     return transactionList
-
-# Define specialized agents
-class FinancialAgents:
-    def __init__(self, llm):
-        # Analysis Agent - Handles financial analysis
-        self.analysis_agent = Agent(
-            name="analysis_agent",
-            role="financial_analyst",
-            model=llm,
-            tools=[ReasoningTools()],
-            instructions=[
-                "Analyze spending patterns and financial data",
-                "Compare with demographic averages",
-                "Identify trends and anomalies",
-                "Provide clear, data-driven insights"
-            ],
-            show_tool_calls=True,
-            markdown=True
-        )
-
-        # Transaction Agent - Processes transactions
-        self.transaction_agent = Agent(
-            name="transaction_agent",
-            role="transaction_processor",
-            model=llm,
-            tools=[ReasoningTools()],
-            instructions=[
-                "Process and categorize transactions",
-                "Detect spending patterns",
-                "Identify unusual transactions",
-                "Calculate key metrics"
-            ],
-            show_tool_calls=True,
-            markdown=True
-        )
-
-        # Advice Agent - Provides recommendations
-        self.advice_agent = Agent(
-            name="advice_agent",
-            role="financial_advisor",
-            model=llm,
-            tools=[ReasoningTools()],
-            instructions=[
-                "Generate personalized financial advice",
-                "Suggest improvements based on analysis",
-                "Provide actionable recommendations",
-                "Consider user's financial goals"
-            ],
-            show_tool_calls=True,
-            markdown=True
-        )
-
-        # Create the team
-        self.team = Team(
-            mode="coordinate",
-            members=[
-                self.analysis_agent,
-                self.transaction_agent,
-                self.advice_agent
-            ],
-            model=llm,
-            success_criteria="A comprehensive financial analysis with clear insights and actionable recommendations.",
-            instructions=[
-                "Coordinate between agents to provide complete financial advice",
-                "Ensure all aspects of the analysis are covered",
-                "Present findings in a clear, structured manner"
-            ],
-            show_tool_calls=True,
-            markdown=True
-        )
-
-    async def process_message(self, message: str) -> str:
-        """Process a user message through the agent team"""
-        try:
-            # Process through the team
-            response = await self.team.process(
-                message,
-                stream=True,
-                show_full_reasoning=True
-            )
-            
-            return response
-
-        except Exception as e:
-            return f"Error processing message: {str(e)}"
