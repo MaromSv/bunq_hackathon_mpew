@@ -46,12 +46,6 @@ class FinancialAdviceAIAgent:
         except (json.JSONDecodeError, KeyError, TypeError):
             pass
 
-        # If we can't parse JSON or find routing_decision, check for keywords
-        last_message = ai_messages[-1].content.lower()
-        if any(word in last_message for word in ["spend", "expense", "transaction", "history", "afford", "budget"]):
-            return "past"
-        elif any(word in last_message for word in ["save", "invest", "plan", "future", "goal", "buy", "purchase"]):
-            return "future"
         
         # Default to general if no clear decision
         return "general"
@@ -97,28 +91,16 @@ class FinancialAdviceAIAgent:
             "Keep your responses concise and focused. Limit responses to 2-3 sentences maximum."
         )
 
-        general_advice_prompt = (
-            "You are a helpful financial assistant. Even for general questions, try to provide relevant financial advice "
-            "or insights when appropriate. Keep responses concise and focused on financial aspects when possible.\n\n"
-            "For general questions, provide brief, relevant financial context or advice. For example:\n"
-            "- If asked about weather, mention how weather can affect spending patterns\n"
-            "- If asked about hobbies, suggest budget-friendly options\n"
-            "- If asked about travel, mention travel budgeting tips\n\n"
-            "Keep your responses concise and focused. Limit responses to 2-3 sentences maximum."
-        )
-        
         builder = StateGraph(AgentState)
 
         # Create all specialized agents
         orchestrator = create_react_agent(self.llm, tools=[], prompt=orchestrator_prompt, checkpointer=self.memory)
         past_advice_agent = create_react_agent(self.llm, tools=tools_past_advice, prompt=past_advice_prompt, checkpointer=self.memory)
         future_advice_agent = create_react_agent(self.llm, tools=tools_future_advice, prompt=future_advice_prompt, checkpointer=self.memory)
-        general_advice_agent = create_react_agent(self.llm, tools=[], prompt=general_advice_prompt, checkpointer=self.memory)
-
+  
         builder.add_node("orchestrator", orchestrator)
         builder.add_node("past_advice", past_advice_agent)
         builder.add_node("future_advice", future_advice_agent)
-        builder.add_node("general_advice", general_advice_agent)
 
         builder.set_entry_point("orchestrator")
 
@@ -129,25 +111,21 @@ class FinancialAdviceAIAgent:
             {
                 "past": "past_advice",
                 "future": "future_advice",
-                "general": "general_advice"  # Changed from END to general_advice
+                "general": "orchestrator"  
             }
         )
 
         # All specialized agents go to END
         builder.add_edge("past_advice", END)
         builder.add_edge("future_advice", END)
-        builder.add_edge("general_advice", END)
         
         # Build the graph
         self.graph = builder.compile()
 
         # Save graph visualization
-        try:
-            with open("graph.png", "wb") as f:
-                f.write(self.graph.get_graph().draw_mermaid_png())
-            os.startfile("graph.png")  # Windows only
-        except Exception as e:
-            print(f"Could not save graph visualization: {e}")
+        with open("graph.png", "wb") as f:
+            f.write(self.graph.get_graph().draw_mermaid_png())
+
 
     def process_message(self, message, thread_id=None):
         """Process a user message"""
