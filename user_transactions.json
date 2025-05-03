@@ -1,0 +1,268 @@
+[
+    {
+        "payment_id": 25278926,
+        "amount": -15.64,
+        "currency": "EUR",
+        "description": "CCV*CT COFFEE AND COCO Amsterdam, NL",
+        "created_at": "2025-05-02 15:23:06.696817"
+    },
+    {
+        "payment_id": 25278924,
+        "amount": -18.23,
+        "currency": "EUR",
+        "description": "Thuisbezorgd.nl Amsterdam, NL",
+        "created_at": "2025-05-02 15:23:06.504020"
+    },
+    {
+        "payment_id": 25278922,
+        "amount": -16.70,
+        "currency": "EUR",
+        "description": "Starbucks 20119 Amsterdam, NL",
+        "created_at": "2025-05-02 15:23:06.280510"
+    },
+    {
+        "payment_id": 25278920,
+        "amount": -13.39,
+        "currency": "EUR",
+        "description": "DroversDog3 Wibaut Amsterdam, NL",
+        "created_at": "2025-05-02 15:23:06.083175"
+    },
+    {
+        "payment_id": 25278918,
+        "amount": -10.50,
+        "currency": "EUR",
+        "description": "1PASSWORD Amsterdam, NL",
+        "created_at": "2025-05-02 15:23:05.848442"
+    },
+    {
+        "payment_id": 25278916,
+        "amount": -12.03,
+        "currency": "EUR",
+        "description": "HMSHOST AMSTERDAM CS Amsterdam, NL",
+        "created_at": "2025-05-02 15:23:05.611917"
+    },
+    {
+        "payment_id": 25278914,
+        "amount": -18.35,
+        "currency": "EUR",
+        "description": "Starbucks 20119 Amsterdam, NL",
+        "created_at": "2025-05-02 15:23:05.384925"
+    },
+    {
+        "payment_id": 25278913,
+        "amount": 6987.12,
+        "currency": "EUR",
+        "description": "Salary 5 months since creation",
+        "created_at": "2025-05-01 15:23:05.139117"
+    },
+    {
+        "payment_id": 25278927,
+        "amount": -32.80,
+        "currency": "EUR",
+        "description": "Albert Heijn Amsterdam, NL",
+        "created_at": "2025-05-02 18:45:21.882300"
+    },
+    {
+        "payment_id": 25278928,
+        "amount": -3.20,
+        "currency": "EUR",
+        "description": "GVB Tram 14 Amsterdam, NL",
+        "created_at": "2025-05-02 19:01:56.187932"
+    },
+    {
+        "payment_id": 25278929,
+        "amount": -11.99,
+        "currency": "EUR",
+        "description": "Spotify Subscription",
+        "created_at": "2025-05-02 19:23:45.002110"
+    },
+    {
+        "payment_id": 25278930,
+        "amount": -42.50,
+        "currency": "EUR",
+        "description": "Vodafone NL - Monthly Bill",
+        "created_at": "2025-05-02 19:45:37.778600"
+    },
+    {
+        "payment_id": 25278931,
+        "amount": -6.75,
+        "currency": "EUR",
+        "description": "Bagels & Beans Amsterdam, NL",
+        "created_at": "2025-05-03 09:13:04.421150"
+    },
+    {
+        "payment_id": 25278932,
+        "amount": -22.90,
+        "currency": "EUR",
+        "description": "Jumbo Supermarkt Amsterdam, NL",
+        "created_at": "2025-05-03 11:40:17.668540"
+    },
+    {
+        "payment_id": 25278933,
+        "amount": 25.00,
+        "currency": "EUR",
+        "description": "Reimbursement from Rahul",
+        "created_at": "2025-05-03 13:11:55.334800"
+    },
+    {
+        "payment_id": 25278934,
+        "amount": -58.00,
+        "currency": "EUR",
+        "description": "NS International - Train to Utrecht",
+        "created_at": "2025-05-03 15:34:22.896130"
+    },
+    {
+        "payment_id": 25278935,
+        "amount": 1397.80,
+        "currency": "EUR",
+        "description": "Monthly Salary",
+        "created_at": "2025-05-03 16:01:15.034112"
+    },
+    {
+        "payment_id": 25278936,
+        "amount": -765.00,
+        "currency": "EUR",
+        "description": "Rent May - Amsterdam Room",
+        "created_at": "2025-05-03 09:00:00"
+    },
+    {
+        "payment_id": 25278937,
+        "amount": -100.00,
+        "currency": "EUR",
+        "description": "Utilities (Water, Gas, Internet)",
+        "created_at": "2025-05-03 10:00:00"
+    },
+    {
+        "payment_id": 25278938,
+        "amount": -8.40,
+        "currency": "EUR",
+        "description": "Starbucks 20119 Amsterdam, NL",
+        "created_at": "2025-05-04 09:20:00"
+    },
+    {
+        "payment_id": 25278939,
+        "amount": -6.90,
+        "currency": "EUR",
+        "description": "GVB Tram 4 Amsterdam, NL",
+        "created_at": "2025-05-04 13:00:00"
+    },
+    {
+        "payment_id": 25278940,
+        "amount": -31.40,
+        "currency": "EUR",
+        "description": "Albert Heijn Groceries",
+        "created_at": "2025-05-05 17:45:00"
+    },
+    {
+        "payment_id": 25278941,
+        "amount": 150.00,
+        "currency": "EUR",
+        "description": "Tutoring Payment - Python Help",
+        "created_at": "2025-05-06 15:10:00"
+    },
+    {
+        "payment_id": 25278942,
+        "amount": -19.95,
+        "currency": "EUR",
+        "description": "Thuisbezorgd.nl Dinner",
+        "created_at": "2025-05-06 20:25:00"
+    },
+    {
+        "payment_id": 25278943,
+        "amount": -11.50,
+        "currency": "EUR",
+        "description": "CT Coffee Amsterdam",
+        "created_at": "2025-05-07 10:30:00"
+    },
+    {
+        "payment_id": 25278944,
+        "amount": -3.20,
+        "currency": "EUR",
+        "description": "GVB Tram 14 Amsterdam, NL",
+        "created_at": "2025-05-07 18:20:00"
+    },
+    {
+        "payment_id": 25278945,
+        "amount": -29.80,
+        "currency": "EUR",
+        "description": "Lidl Groceries Amsterdam",
+        "created_at": "2025-05-08 16:45:00"
+    },
+    {
+        "payment_id": 25278946,
+        "amount": -12.80,
+        "currency": "EUR",
+        "description": "Bagels & Beans Amsterdam, NL",
+        "created_at": "2025-05-09 10:05:00"
+    },
+    {
+        "payment_id": 25278947,
+        "amount": -20.00,
+        "currency": "EUR",
+        "description": "Cinema Pathé Ticket",
+        "created_at": "2025-05-10 21:15:00"
+    },
+    {
+        "payment_id": 25278948,
+        "amount": 50.00,
+        "currency": "EUR",
+        "description": "Freelance Payment - Web Fixes",
+        "created_at": "2025-05-11 14:30:00"
+    },
+    {
+        "payment_id": 25278949,
+        "amount": -12.60,
+        "currency": "EUR",
+        "description": "Starbucks Amsterdam, NL",
+        "created_at": "2025-05-11 17:00:00"
+    },
+    {
+        "payment_id": 25278950,
+        "amount": -24.90,
+        "currency": "EUR",
+        "description": "Jumbo Supermarkt",
+        "created_at": "2025-05-12 18:00:00"
+    },
+    {
+        "payment_id": 25278951,
+        "amount": -6.50,
+        "currency": "EUR",
+        "description": "GVB Bus 21",
+        "created_at": "2025-05-13 08:15:00"
+    },
+    {
+        "payment_id": 25278952,
+        "amount": -14.75,
+        "currency": "EUR",
+        "description": "Lunch at Vegan Junk Food Bar",
+        "created_at": "2025-05-14 13:45:00"
+    },
+    {
+        "payment_id": 25278953,
+        "amount": -60.00,
+        "currency": "EUR",
+        "description": "NS Intercity - Return to Rotterdam",
+        "created_at": "2025-05-15 19:20:00"
+    },
+    {
+        "payment_id": 25278954,
+        "amount": -10.00,
+        "currency": "EUR",
+        "description": "Spotify Premium - Shared with Sibling",
+        "created_at": "2025-05-16 07:00:00"
+    },
+    {
+        "payment_id": 25278955,
+        "amount": -15.00,
+        "currency": "EUR",
+        "description": "Gift for Friend - Online",
+        "created_at": "2025-05-17 12:00:00"
+    },
+    {
+        "payment_id": 25278956,
+        "amount": -35.00,
+        "currency": "EUR",
+        "description": "Zara - New T-Shirt & Socks",
+        "created_at": "2025-05-18 15:00:00"
+    }
+]

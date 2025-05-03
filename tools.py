@@ -4,6 +4,9 @@ import traceback
 from langchain_core.tools import tool
 from logger import log_tool_execution
 import requests
+from web_search_tools import tools as web_search_tools
+from expense_analysis_tools import tools as expense_analysis_tools
+from transaction_analysis_tools import tools as transaction_analysis_tools
 
 from langchain_core.tools import tool
 
@@ -31,5 +34,6 @@ def research_tool(input: str) -> str:
     return f"[Research Tool] Looking up future purchases for: {input}"
 
 
-tools_past_advice = [bunq_api_tool, comparator_tool]
-tools_future_advice = [bunq_api_tool, research_tool]
+# Tools for analyzing past spending and transactions
+tools_past_advice = expense_analysis_tools + transaction_analysis_tools
+tools_future_advice = transaction_analysis_tools + web_search_tools

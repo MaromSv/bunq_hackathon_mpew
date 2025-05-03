@@ -18,10 +18,9 @@ from agent import FinancialAdviceAIAgent
 from langchain.chat_models import init_chat_model
 load_dotenv()
 
+model = init_chat_model("nvidia/llama-3.1-nemotron-ultra-253b-v1", model_provider="nvidia")
 
-llm = init_chat_model("meta/llama-3.1-70b-instruct", model_provider="nvidia")
-
-ai_agent = FinancialAdviceAIAgent(llm)
+ai_agent = FinancialAdviceAIAgent(model)
 thread_id = str(uuid.uuid4())
 
 def run_demo():
